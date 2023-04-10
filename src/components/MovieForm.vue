@@ -45,15 +45,14 @@
                })
                .then(function (data) {
                    // display a success message
-                   console.log("heeeeeeeey");
                    alertcontainer.classList.remove('hide');
-                   
-                   if (Array.isArray(data)){
+                   if (Array.isArray(data.errors)){
+                        //console.log("hey man");
                        alertcontainer.innerHTML = '';
-                       self.errorlist = data;
+                       self.errorlist = data.errors;
                        alertcontainer.classList.remove('alert-success');
                        alertcontainer.classList.add('alert-danger');
-                       let errorlist = data;
+                       let errorlist = data.errors;
                        let fields = [];
                        for (let err=0; err<errorlist.length; err++){
                            const erroritem = document.createElement("li");
@@ -96,6 +95,7 @@
                       
                    }
                    else{
+                    console.log("hey man");
                         document.querySelector('#title').classList.remove('errhighlight');
                        document.querySelector('#description').classList.remove('errhighlight');
                        document.querySelector('#poster').classList.remove('errhighlight');
